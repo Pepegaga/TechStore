@@ -1,0 +1,6 @@
+export const ADD_COMMENT = 'ADD_COMMENT'
+export const SAVE_DATA = 'SAVE_DATA'
+export const UPDATE_NAME = 'UPDATE_NAME'
+export const UPDATE_ADDRESS = 'UPDATE_ADDRESS'
+export const ADD_TO_CART = 'ADD_TO_CART'
+export const RERENDER_CART = 'RERENDER_CART'

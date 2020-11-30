@@ -1,0 +1,58 @@
+.title-text {
+    color: black;
+    margin-top: 20px;
+    font-size: x-large;
+}
+
+.description {
+    flex-direction: row;
+    color: gray;
+}
+
+.row2 {
+    flex-direction: row;
+    margin-left: 20px;
+    color: gray;
+}
+
+.description-text {
+    color: gray;
+}
+
+.cost {
+    font-size: xx-large;
+    font-weight: bolder;
+    margin-top: 10px
+}
+
+.card {
+    display: flex;
+    border-radius: 20px;
+    height: 290px;
+    width: 70%;
+    background-color: white;
+    margin-bottom: 10px;
+    margin-left: 17%;
+}
+
+.img {
+    height: 160px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+.editBtn {
+    margin-left: 550px;
+    margin-top: 150px;
+}
+
+.deleteBtn {
+    margin-left: 79%;
+    margin-top: -20px;
+}
+
+.formItem {
+    display: flex;
+}

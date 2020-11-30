@@ -1,0 +1,12 @@
+{
+    "scripts": {
+        "server": "cd server && npm run server",
+        "client": "cd TechStore && npm run web",
+        "dev": ""
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "react-dom": "^17.0.1",
+        "react-native-dotenv": "^2.4.2"
+    }
+}
