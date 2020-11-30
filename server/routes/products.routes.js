@@ -84,12 +84,32 @@ router.post('/addItem', async (req, res) => {
             sim,
             cost,
             category,
+            image,
         } = req.body
 
         await pool.query(
-            'INSERT INTO products (product_name,product_title,product_description,product_brand,product_os,product_size,product_resolution,product_ram,product_memory,product_camera,product_sim,product_cost,category)'
+            'INSERT INTO products (product_name,product_title,product_description,product_brand,product_os,product_size,product_resolution,product_ram,product_memory,product_camera,product_sim,product_cost,category,product_thumb) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14)',
+            [
+                name,
+                title,
+                description,
+                brand,
+                os,
+                size,
+                resolution,
+                ram,
+                memory,
+                camera,
+                sim,
+                cost,
+                category,
+                image,
+            ]
         )
-    } catch (error) {}
+        res.json(true)
+    } catch (error) {
+        res.json(false)
+    }
 })
 
 router.put('/editItem', async (req, res) => {
@@ -134,7 +154,7 @@ router.put('/editItem', async (req, res) => {
         )
         res.json(true)
     } catch (error) {
-        console.log(error)
+        res.json(false)
     }
 })
 
@@ -142,6 +162,7 @@ router.delete('/deleteItem', async (req, res) => {
     try {
         const { id } = req.body
         await pool.query('DELETE FROM products WHERE product_id=$1', [id])
+        res.json(true)
     } catch (error) {}
 })
 
