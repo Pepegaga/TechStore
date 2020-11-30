@@ -1,25 +1,24 @@
-import {useState, useCallback} from 'react'
+import { useState, useCallback } from 'react'
 
-export const useHttp =() => {
+export const useHttp = () => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
 
-    const request = async (url, method = 'GET', body = null, headers ={}) =>{
+    const request = async (url, method = 'GET', body = null, headers = {}) => {
         setLoading(true)
         try {
-            if(body) {
+            if (body) {
                 body = JSON.stringify(body)
-                headers['Content-Type']= 'application/json'
+                headers['Content-Type'] = 'application/json'
             }
-           const response =  await fetch(url, {method, body, headers})
-           const data = await response.json()
+            const response = await fetch(url, { method, body, headers })
+            const data = await response.json()
 
-           if(!response.ok) {
-               throw new Error(data.message || 'smthg went wrong')
-           }
-           setLoading(false)
-           return data
-
+            if (!response.ok) {
+                throw new Error(data.message || 'smthg went wrong')
+            }
+            setLoading(false)
+            return data
         } catch (error) {
             setLoading(false)
             setError(error.message)
@@ -27,7 +26,7 @@ export const useHttp =() => {
         }
     }
 
-    const clearError = ()=> setError(null)
+    const clearError = () => setError(null)
 
-    return {loading, request, error, clearError}
+    return { loading, request, error, clearError }
 }

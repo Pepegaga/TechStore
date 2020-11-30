@@ -1,12 +1,11 @@
-  
-import React from 'react';
+import React from 'react'
 
 function Orders() {
-  return (
-    <div className='reports'>
-      <h1>Orders</h1>
-    </div>
-  );
+    return (
+        <div className="reports">
+            <h1>Orders</h1>
+        </div>
+    )
 }
 
-export default Orders;
+export default Orders

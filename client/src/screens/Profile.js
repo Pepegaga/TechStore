@@ -1,50 +1,105 @@
-import React, {useState, useEffect} from 'react';
-import {View, Text, ScrollView, StyleSheet, Dimensions, StatusBar } from 'react-native';
-import colors from '../constants/colors';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import {Entypo, MaterialCommunityIcons, Feather, FontAwesome5} from '@expo/vector-icons';
-import {RowItem} from '../components/RowItem';
-import {Header, Icon} from 'react-native-elements'
+import React, { useState, useEffect } from 'react'
+import {
+    View,
+    Text,
+    ScrollView,
+    StyleSheet,
+    Dimensions,
+    StatusBar,
+} from 'react-native'
+import colors from '../constants/colors'
+import { TouchableOpacity } from 'react-native-gesture-handler'
+import {
+    Entypo,
+    MaterialCommunityIcons,
+    Feather,
+    FontAwesome5,
+} from '@expo/vector-icons'
+import { RowItem } from '../components/RowItem'
+import { Header, Icon } from 'react-native-elements'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import {useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
 
-const screen = Dimensions.get('window');
+const screen = Dimensions.get('window')
 
+export default ({ navigation }) => {
+    const name = useSelector((state) => state.login.name)
 
-
-export default ({navigation})=>{
-
-    const name = useSelector(state=>state.login.name)
-    
-    return(
+    return (
         <View style={styles.container}>
-            <StatusBar barStyle='light-content'/>
-            <Header containerStyle={{backgroundColor: colors.blue, height: 70}}
+            <StatusBar barStyle="light-content" />
+            <Header
+                containerStyle={{ backgroundColor: colors.blue, height: 70 }}
                 centerComponent={<Text style={styles.headerText}>Profile</Text>}
-                rightComponent={<Icon name='settings' size={36} color="white" onPress={()=>navigation.push('Options')}/>}
+                rightComponent={
+                    <Icon
+                        name="settings"
+                        size={36}
+                        color="white"
+                        onPress={() => navigation.push('Options')}
+                    />
+                }
             />
             <ScrollView>
                 <View style={styles.accountHeader}>
-                    <MaterialCommunityIcons name='account-circle-outline' size={48} color={colors.blue} />
-                        <Text style={styles.text}>{name}</Text>
-                    <TouchableOpacity style={styles.logout} onPress={()=>{
-                        AsyncStorage.removeItem('token')
-                        navigation.navigate('SignIn')
-                        }}>
-                        <Entypo name="log-out" size={24} color={colors.blue}/>
+                    <MaterialCommunityIcons
+                        name="account-circle-outline"
+                        size={48}
+                        color={colors.blue}
+                    />
+                    <Text style={styles.text}>{name}</Text>
+                    <TouchableOpacity
+                        style={styles.logout}
+                        onPress={() => {
+                            AsyncStorage.removeItem('token')
+                            navigation.navigate('SignIn')
+                        }}
+                    >
+                        <Entypo name="log-out" size={24} color={colors.blue} />
                     </TouchableOpacity>
                 </View>
                 <View>
-                    <RowItem text="Favourite" onPress={()=>navigation.push('Favourite')} leftIcon={<Feather name='star' size={24} color={colors.blue}/>} rightIcon={<Entypo name="chevron-right" size={20} color={colors.blue}/>} />
-                    <RowItem text="Order history" onPress={()=>navigation.push('OrderHistory')} leftIcon={<FontAwesome5 name='clipboard' size={24} color={colors.blue}/>} rightIcon={<Entypo name="chevron-right" size={20} color={colors.blue}/>} />
-
+                    <RowItem
+                        text="Favourite"
+                        onPress={() => navigation.push('Favourite')}
+                        leftIcon={
+                            <Feather
+                                name="star"
+                                size={24}
+                                color={colors.blue}
+                            />
+                        }
+                        rightIcon={
+                            <Entypo
+                                name="chevron-right"
+                                size={20}
+                                color={colors.blue}
+                            />
+                        }
+                    />
+                    <RowItem
+                        text="Order history"
+                        onPress={() => navigation.push('OrderHistory')}
+                        leftIcon={
+                            <FontAwesome5
+                                name="clipboard"
+                                size={24}
+                                color={colors.blue}
+                            />
+                        }
+                        rightIcon={
+                            <Entypo
+                                name="chevron-right"
+                                size={20}
+                                color={colors.blue}
+                            />
+                        }
+                    />
                 </View>
             </ScrollView>
         </View>
-    );
+    )
 }
-;
-
 
 const styles = StyleSheet.create({
     header: {
@@ -57,7 +112,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'white',
     },
-    container:{
+    container: {
         backgroundColor: colors.background,
         flex: 1,
     },
@@ -68,7 +123,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
     },
     text: {
-        fontSize:30,
+        fontSize: 30,
         color: 'black',
         fontWeight: 'bold',
         marginLeft: 20,
@@ -108,14 +163,13 @@ const styles = StyleSheet.create({
         marginLeft: 20,
         flexDirection: 'row',
         marginBottom: 10,
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
     },
 
     logout: {
         justifyContent: 'center',
         marginLeft: 70,
         marginTop: 13,
-        marginRight: 10
-    }
-    
-});
+        marginRight: 10,
+    },
+})

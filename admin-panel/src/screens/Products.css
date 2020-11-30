@@ -7,9 +7,9 @@
 
 .input {
     display: 'flex';
-    flex-Wrap: 'wrap';
+    flex-wrap: 'wrap';
     margin-left: 30%;
-    margin-Right: 30%;
+    margin-right: 30%;
     width: '25ch';
 }
 

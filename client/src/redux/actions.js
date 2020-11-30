@@ -1,56 +1,63 @@
-import {ADD_COMMENT, SAVE_DATA, UPDATE_NAME, UPDATE_ADDRESS, ADD_TO_CART, RERENDER_CART} from "./types";
+import {
+    ADD_COMMENT,
+    SAVE_DATA,
+    UPDATE_NAME,
+    UPDATE_ADDRESS,
+    ADD_TO_CART,
+    RERENDER_CART,
+} from './types'
 
-export function addComment(comment){
-    return{
+export function addComment(comment) {
+    return {
         type: ADD_COMMENT,
-        payload: comment
+        payload: comment,
     }
 }
 
-export function saveLocalData(data){
-    return{
+export function saveLocalData(data) {
+    return {
         type: SAVE_DATA,
         payload: {
             name: data.name,
             id: data.id,
             token: data.token,
-            address: data.address
-        }
+            address: data.address,
+        },
     }
 }
 
-export function updateName(name){
-    return{
+export function updateName(name) {
+    return {
         type: UPDATE_NAME,
         payload: {
-            name: name
-        }
+            name: name,
+        },
     }
 }
 
-export function updateAddress(address){
-    return{
+export function updateAddress(address) {
+    return {
         type: UPDATE_ADDRESS,
         payload: {
-            address: address
-        }
+            address: address,
+        },
     }
 }
 
-export function addToCart(cartItem){
-    return{
+export function addToCart(cartItem) {
+    return {
         type: ADD_TO_CART,
         payload: {
-            cart: cartItem
-        }
+            cart: cartItem,
+        },
     }
 }
 
-export function rerenderCart(cartItem){
-    return{
+export function rerenderCart(cartItem) {
+    return {
         type: RERENDER_CART,
         payload: {
-            cart: cartItem
-        }
+            cart: cartItem,
+        },
     }
 }

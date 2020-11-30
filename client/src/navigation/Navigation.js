@@ -1,13 +1,11 @@
-import  React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import  {MainStackComponent}  from '../../src/navigation/MainNavigator';
+import React from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import { MainStackComponent } from '../../src/navigation/MainNavigator'
 
 export default () => {
-
-    return(
-        
+    return (
         <NavigationContainer>
-            <MainStackComponent/>
+            <MainStackComponent />
         </NavigationContainer>
     )
 }

@@ -22,7 +22,7 @@
 .cost {
     font-size: xx-large;
     font-weight: bolder;
-    margin-top: 10px
+    margin-top: 10px;
 }
 
 .card {
@@ -42,15 +42,19 @@
     margin-right: 20px;
 }
 
-
 .editBtn {
-    margin-left: 550px;
-    margin-top: 150px;
+    margin-left: 510px;
+    margin-top: 15px;
 }
 
 .deleteBtn {
-    margin-left: 79%;
-    margin-top: -20px;
+    margin-left: 62%;
+    margin-top: -35px;
+    margin-bottom: 10px;
+}
+
+.infotext {
+    text-align: center;
 }
 
 .formItem {

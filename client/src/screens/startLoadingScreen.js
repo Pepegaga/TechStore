@@ -1,19 +1,26 @@
-import React, {useEffect} from 'react'
-import { SafeAreaView,StatusBar, StyleSheet, Text, Dimensions, ActivityIndicator, Image} from 'react-native'
+import React, { useEffect } from 'react'
+import {
+    SafeAreaView,
+    StatusBar,
+    StyleSheet,
+    Text,
+    Dimensions,
+    ActivityIndicator,
+    Image,
+} from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import colors from '../constants/colors'
-import {useDispatch} from 'react-redux'
-import { saveLocalData } from "../redux/actions";
+import { useDispatch } from 'react-redux'
+import { saveLocalData } from '../redux/actions'
 
-const screen = Dimensions.get('window');
+const screen = Dimensions.get('window')
 
-
-export default (props)=>{
+export default (props) => {
     const dispatch = useDispatch()
 
-    const detectLogin= async ()=>{
-        const token = JSON.parse(await AsyncStorage.getItem('token')) 
-        if(token){
+    const detectLogin = async () => {
+        const token = JSON.parse(await AsyncStorage.getItem('token'))
+        if (token) {
             dispatch(saveLocalData(token))
             props.navigation.navigate('Tabs')
         } else {
@@ -21,26 +28,28 @@ export default (props)=>{
         }
     }
 
+    useEffect(() => {
+        detectLogin()
+    }, [])
 
-    useEffect(()=>{
-       detectLogin()
-    },[])
-
-    return(
+    return (
         <SafeAreaView style={styles.container}>
             <StatusBar barStyle="dark-content" />
             <Text style={styles.logoText}>TechStore</Text>
-                    <ActivityIndicator style={styles.loadingComponent} size='large' color="#000fff" />
-                    {/* <Image style={styles.image} source={require('../assets/image0.png')} /> */}
+            <ActivityIndicator
+                style={styles.loadingComponent}
+                size="large"
+                color="#000fff"
+            />
+            {/* <Image style={styles.image} source={require('../assets/image0.png')} /> */}
         </SafeAreaView>
     )
-    
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
     },
     loadingComponent: {
         flex: 1,
@@ -53,10 +62,10 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginTop: screen.height * 0.1,
     },
-    image:{
+    image: {
         flex: 1,
         width: screen.width,
         height: screen.height,
-        marginTop: 0
-    }
+        marginTop: 0,
+    },
 })

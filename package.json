@@ -2,10 +2,12 @@
     "scripts": {
         "server": "cd server && npm run server",
         "client": "cd TechStore && npm run web",
-        "dev": ""
+        "dev": "",
+        "prettier:write": "prettier —write \"**/*.{js,ts,jsx,tsx,css,md}\""
     },
     "dependencies": {
         "cors": "^2.8.5",
+        "prettier": "^2.2.1",
         "react-dom": "^17.0.1",
         "react-native-dotenv": "^2.4.2"
     }

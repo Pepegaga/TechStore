@@ -1,12 +1,11 @@
-  
-import React from 'react';
+import React from 'react'
 
 function Comments() {
-  return (
-    <div className='reports'>
-      <h1>Comments</h1>
-    </div>
-  );
+    return (
+        <div className="reports">
+            <h1>Comments</h1>
+        </div>
+    )
 }
 
-export default Comments;
+export default Comments

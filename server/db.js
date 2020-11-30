@@ -5,7 +5,7 @@ const pool = new Pool({
     password: 'Pokemon4ik',
     host: 'localhost',
     port: 5432,
-    database: 'techstore_db'
-});
+    database: 'techstore_db',
+})
 
-module.exports = pool;
+module.exports = pool

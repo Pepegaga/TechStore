@@ -1,13 +1,22 @@
-import React,{useState,useEffect} from 'react'
-import { StyleSheet, Text, View, ScrollView, Dimensions, TextInput, TouchableOpacity, StatusBar, SafeAreaView} from 'react-native'
+import React, { useState, useEffect } from 'react'
+import {
+    StyleSheet,
+    Text,
+    View,
+    ScrollView,
+    Dimensions,
+    TextInput,
+    TouchableOpacity,
+    StatusBar,
+    SafeAreaView,
+} from 'react-native'
 
-import colors from "../constants/colors";
-import { CategoryRowItem, RowSeparator } from "../components/CategoryRowItem";
+import colors from '../constants/colors'
+import { CategoryRowItem, RowSeparator } from '../components/CategoryRowItem'
 
-const screen = Dimensions.get('window');
+const screen = Dimensions.get('window')
 
-export default function Home({navigation}) {
-
+export default function Home({ navigation }) {
     // const [categories, setCategories] = useState([])
 
     // const {request} = useHttp()
@@ -17,7 +26,7 @@ export default function Home({navigation}) {
     //         const data = await request(`${baseUrl}/api/categories/list`,'POST')
     //         setCategories(data)
     //     } catch (error) {
-            
+
     //     }
     // }
 
@@ -26,44 +35,46 @@ export default function Home({navigation}) {
     // },[])
 
     const onPress = (screenName) => {
-            navigation.navigate('ItemList', {
+        navigation.navigate('ItemList', {
             category: screenName,
-        });
+        })
     }
 
     return (
         <View style={styles.container}>
-            <StatusBar barStyle='light-content'/>
+            <StatusBar barStyle="light-content" />
             <SafeAreaView style={styles.header}>
                 <Text style={styles.logoText}>TechStore</Text>
-                <TextInput style={styles.input} clearButtonMode="always"  placeholder="Search for anything"/>
+                <TextInput
+                    style={styles.input}
+                    clearButtonMode="always"
+                    placeholder="Search for anything"
+                />
             </SafeAreaView>
             <View>
-                <TouchableOpacity onPress={()=>onPress("Smartphones")}>
+                <TouchableOpacity onPress={() => onPress('Smartphones')}>
                     <CategoryRowItem value="Smartphones" />
-                </TouchableOpacity >
-                <TouchableOpacity onPress={()=>onPress("Tablets")}>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => onPress('Tablets')}>
                     <CategoryRowItem value="Tablets" />
                 </TouchableOpacity>
-                <TouchableOpacity  onPress={()=>onPress("Laptops")}>
+                <TouchableOpacity onPress={() => onPress('Laptops')}>
                     <CategoryRowItem value="Laptops" />
                 </TouchableOpacity>
-                <TouchableOpacity  onPress={()=>onPress("TV")}>
+                <TouchableOpacity onPress={() => onPress('TV')}>
                     <CategoryRowItem value="TV" />
                 </TouchableOpacity>
             </View>
-            
         </View>
-    )     
-    
+    )
 }
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         flex: 1,
     },
     content: {
-        alignItems:'center',
+        alignItems: 'center',
         justifyContent: 'center',
         paddingTop: screen.height * 0.05,
     },
@@ -93,22 +104,19 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         paddingVertical: 16,
         flexDirection: 'row',
-        alignItems: "center",
+        alignItems: 'center',
         justifyContent: 'space-between',
         backgroundColor: '#fcfcfc',
     },
-    text:{
+    text: {
         fontSize: 16,
         color: 'black',
         marginLeft: 25,
-
     },
     separator: {
         backgroundColor: colors.border,
         height: StyleSheet.hairlineWidth,
-        marginLeft: 20
+        marginLeft: 20,
     },
-    item: {
-
-    }
+    item: {},
 })
