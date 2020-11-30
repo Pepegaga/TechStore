@@ -8,22 +8,13 @@ import TextField from '@material-ui/core/TextField'
 import { Button } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        '& > *': {
-            margin: theme.spacing(1),
-        },
-    },
-}))
-
 function Products() {
-    const classes = useStyles()
-
     const { request } = useHttp()
 
     const [list, setList] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [search, setSearch] = useState('')
+    const [searchList, setSearchList] = useState([])
 
     const renderList = async () => {
         try {
@@ -33,7 +24,24 @@ function Products() {
             )
             console.log(data)
             setList(data)
+            setSearchList(data)
             setIsLoading(false)
+        } catch (error) {}
+    }
+
+    const searchHandler = async () => {
+        try {
+            if (search.length > 0) {
+                setSearchList([])
+                const data = await request(
+                    `${baseUrl}/api/search/search`,
+                    'POST',
+                    { search }
+                )
+                setSearchList(data)
+            } else {
+                setSearchList(list)
+            }
         } catch (error) {}
     }
 
@@ -57,14 +65,19 @@ function Products() {
                     }}
                     variant="outlined"
                 />
-                <div>
-                    <Button variant="contained" color="primary">
+                <div className="row">
+                    <Button onClick={() => searchHandler()} variant="contained">
                         Search
                     </Button>
+                    <Link to="/add">
+                        <Button variant="contained" color="primary">
+                            Add item
+                        </Button>
+                    </Link>
                 </div>
             </div>
             <div>
-                {list.map((item) => {
+                {searchList.map((item) => {
                     return (
                         <>
                             <Link

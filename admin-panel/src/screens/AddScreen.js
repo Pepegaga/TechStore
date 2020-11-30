@@ -6,96 +6,59 @@ import { baseUrl } from '../global'
 import { Button } from '@material-ui/core'
 import Alert from '@material-ui/lab/Alert'
 
-function Edit(props) {
+function Add(props) {
     const { request } = useHttp()
 
-    let { product } = React.useMemo(
-        () => (props.location.state ? props.location.state : {}),
-        [props.location.state]
-    )
-
-    const id = product?.product_id
-
     const [form, setForm] = useState({
-        name: product?.product_name,
-        title: product?.product_title,
-        description: product?.product_description,
-        brand: product?.product_brand,
-        os: product?.product_os,
-        size: product?.product_size,
-        resolution: product?.product_resolution,
-        ram: product?.product_ram,
-        memory: product?.product_memory,
-        camera: product?.product_camera,
-        sim: product?.product_sim,
-        cost: product?.product_cost,
-        category: product?.category,
-        image: product?.product_thumb,
+        name: '',
+        title: '',
+        description: '',
+        brand: '',
+        os: '',
+        size: '',
+        resolution: '',
+        ram: '',
+        memory: '',
+        camera: '',
+        sim: '',
+        cost: '',
+        category: '',
+        image: '',
     })
-
-    const editInfo = async () => {
-        try {
-            const flag = await request(
-                `${baseUrl}/api/products/editItem`,
-                'PUT',
-                {
-                    ...form,
-                    id,
-                }
-            )
-            if (flag) {
-                alert('Successfully edited')
-            } else {
-                alert('Something went wrong')
-            }
-        } catch (error) {}
-    }
-
-    const deleteItem = async () => {
-        try {
-            const flag = await request(
-                `${baseUrl}/api/products/deleteItem`,
-                'DELETE',
-                {
-                    id,
-                }
-            )
-            if (flag) {
-                alert('Successfully deleted')
-            } else {
-                alert('Something went wrong')
-            }
-        } catch (error) {}
-    }
 
     const changeHandler = (event) => {
         setForm({ ...form, [event.target.name]: event.target.value })
     }
 
+    const addItem = async () => {
+        try {
+            const flag = await request(
+                `${baseUrl}/api/products/addItem`,
+                'POST',
+                { ...form }
+            )
+            if (flag) {
+                alert('Successfully added')
+            } else {
+                alert('Something went wrong')
+            }
+        } catch (error) {}
+    }
+
     return (
         <div>
             <div className="infotext">
-                <h1>Edit product info</h1>
+                <h1>Add product</h1>
             </div>
-            <div className="editBtn">
+            <div className="addBtn">
                 <Button
                     variant="contained"
                     color="primary"
-                    onClick={() => editInfo()}
+                    onClick={() => addItem()}
                 >
-                    Edit item
+                    Add item
                 </Button>
             </div>
-            <div className="deleteBtn">
-                <Button
-                    variant="contained"
-                    color="secondary"
-                    onClick={() => deleteItem()}
-                >
-                    Delete item
-                </Button>
-            </div>
-
             <div className="input">
                 <TextField
                     id="outlined-full-width"
@@ -327,4 +290,4 @@ function Edit(props) {
     )
 }
 
-export default Edit
+export default Add

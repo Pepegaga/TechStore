@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
 import './Card.css'
-import { IconButton } from '@material-ui/core'
-import { DeleteOutline, EditOutlined } from '@material-ui/icons'
-import { Modal, Form, Input } from 'antd'
 
 export default ({ item }) => {
     const [visible, setVisible] = useState(false)

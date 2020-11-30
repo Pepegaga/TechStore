@@ -1,5 +1,7 @@
 .row {
     flex-direction: row;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 .container {
     background-color: #f0f0f0;

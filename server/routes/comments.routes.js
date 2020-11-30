@@ -17,6 +17,14 @@ router.post('/commentsList', async (req, res) => {
     }
 })
 
+router.post('/commentsToCheck', async (req, res) => {
+    try {
+        const list = await pool.query('SELECT * FROM comments_to_moderate')
+        console.log(list)
+        res.json(list.rows)
+    } catch (error) {}
+})
+
 router.post('/counter', async (req, res) => {
     try {
         const { id } = req.body

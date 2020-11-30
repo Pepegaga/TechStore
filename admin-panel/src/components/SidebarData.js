@@ -24,7 +24,7 @@ export const SidebarData = [
     },
     {
         title: 'Comments',
-        path: '/team',
+        path: '/comments',
         icon: <FaIcons.FaEnvelopeOpenText />,
         cName: 'nav-text',
     },

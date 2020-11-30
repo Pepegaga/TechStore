@@ -7,6 +7,7 @@ import Orders from './screens/Orders'
 import Products from './screens/Products'
 import Comments from './screens/Comments'
 import Edit from './screens/EditScreen'
+import Add from './screens/AddScreen'
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                     <Route path="/products" component={Products} />
                     <Route path="/comments" component={Comments} />
                     <Route path="/edit" component={Edit} />
+                    <Route path="/add" component={Add} />
                 </Switch>
             </Router>
         </>
