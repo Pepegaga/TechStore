@@ -20,7 +20,6 @@ router.post('/commentsList', async (req, res) => {
 router.post('/commentsToCheck', async (req, res) => {
     try {
         const list = await pool.query('SELECT * FROM comments_to_moderate')
-        console.log(list)
         res.json(list.rows)
     } catch (error) {}
 })
@@ -64,6 +63,48 @@ router.post('/addComment', async (req, res) => {
     } catch (error) {
         res.json({ message: 'error' })
     }
+})
+
+router.post('/approve', async (req, res) => {
+    try {
+        const {
+            user_name,
+            comment,
+            comment_title,
+            pluses,
+            minuses,
+            rating,
+            date,
+            product_id,
+        } = req.body
+        await pool.query(
+            'INSERT INTO comments (user_name,comment,comment_title,pluses,minuses,rating,date,product_id) VALUES($1,$2,$3,$4,$5,$6,$7,$8)',
+            [
+                user_name,
+                comment,
+                comment_title,
+                pluses,
+                minuses,
+                rating,
+                date,
+                product_id,
+            ]
+        )
+        await pool.query(
+            'DELETE FROM comments_to_moderate WHERE comment=$1 AND user_name=$2',
+            [comment, user_name]
+        )
+    } catch (error) {}
+})
+
+router.delete('/refuse', async (req, res) => {
+    try {
+        const { comment, user_name } = req.body
+        await pool.query(
+            'DELETE FROM comments_to_moderate WHERE comment=$1 AND user_name=$2',
+            [comment, user_name]
+        )
+    } catch (error) {}
 })
 
 module.exports = router

@@ -26,6 +26,7 @@ export default ({ item }) => {
                         <p>Cost: {item.product_cost}</p>
                     </div>
                 </div>
+                <p></p>
             </div>
         </div>
     )

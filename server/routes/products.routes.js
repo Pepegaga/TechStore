@@ -68,6 +68,18 @@ router.post('/cartList', async (req, res) => {
     }
 })
 
+router.post('/title', async (req, res) => {
+    try {
+        const { id } = req.body
+        console.log(id)
+        const title = await pool.query(
+            'SELECT product_title FROM products WHERE product_id=$1',
+            [id]
+        )
+        res.json(title.rows[0].product_title)
+    } catch (error) {}
+})
+
 router.post('/addItem', async (req, res) => {
     try {
         const {

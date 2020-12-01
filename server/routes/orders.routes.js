@@ -58,4 +58,11 @@ router.delete('/deleteOrderHistory', async (req, res) => {
     } catch (error) {}
 })
 
+router.post('/orders', async (req, res) => {
+    try {
+        const list = await pool.query('SELECT * FROM orders_to_moder')
+        res.json(list.rows)
+    } catch (error) {}
+})
+
 module.exports = router

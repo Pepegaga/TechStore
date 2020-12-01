@@ -1,3 +1,78 @@
 .container {
     background-color: #f0f0f0;
 }
+
+.messageCard {
+    width: 60%;
+    height: 300px;
+    background-color: white;
+    margin-bottom: 10px;
+    margin-left: 330px;
+    border-radius: 20px;
+}
+
+.commentTitle {
+    font-size: x-large;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.name {
+    margin-left: 20px;
+    padding-top: 20px;
+    font-size: x-large;
+}
+
+.comment {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.date {
+    margin-left: 200px;
+    margin-top: -20px;
+}
+.plus {
+    margin-left: 20px;
+    margin-top: 10px;
+    color: green;
+}
+
+.minus {
+    margin-left: 20px;
+    margin-top: 10px;
+    color: red;
+}
+
+.rowBtn {
+    flex-direction: row;
+    margin-left: 330px;
+    margin-bottom: 10px;
+}
+
+.prodTitle {
+    margin-left: 350px;
+    margin-top: -20px;
+    font-size: large;
+    font-weight: bold;
+}
+
+.rating {
+    margin-left: 650px;
+    margin-top: -20px;
+}
+
+.empty {
+    text-align: center;
+    margin-top: 20%;
+    font-size: xx-large;
+}
+
+.comments {
+    font-size: xx-large;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
