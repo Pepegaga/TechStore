@@ -6,8 +6,12 @@
     margin-bottom: 10px;
 }
 
-.address {
+.rows {
+    flex-direction: row;
 }
 
-.userName {
+.buttons {
+    flex-direction: row;
+    margin-left: 430px;
+    margin-bottom: 10px;
 }

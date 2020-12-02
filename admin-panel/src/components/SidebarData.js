@@ -2,6 +2,7 @@ import React from 'react'
 import * as FaIcons from 'react-icons/fa'
 import * as AiIcons from 'react-icons/ai'
 import * as IoIcons from 'react-icons/io'
+import * as CgIcons from 'react-icons/cg'
 
 export const SidebarData = [
     {
@@ -29,15 +30,15 @@ export const SidebarData = [
         cName: 'nav-text',
     },
     {
-        title: 'Messages',
-        path: '/messages',
-        icon: <FaIcons.FaEnvelopeOpenText />,
+        title: 'Users',
+        path: '/users',
+        icon: <FaIcons.FaUser />,
         cName: 'nav-text',
     },
     {
-        title: 'Support',
-        path: '/support',
-        icon: <IoIcons.IoMdHelpCircle />,
+        title: 'Log out',
+        path: '/signin',
+        icon: <CgIcons.CgLogOut />,
         cName: 'nav-text',
     },
 ]

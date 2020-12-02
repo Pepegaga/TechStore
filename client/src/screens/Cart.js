@@ -32,6 +32,8 @@ export default function CartScreen(props) {
     date = JSON.stringify(date)
 
     const id = useSelector((state) => state.login.id)
+    const name = useSelector((state) => state.login.name)
+    const address = useSelector((state) => state.login.address)
     const dispatch = useDispatch()
 
     const { request } = useHttp()
@@ -62,10 +64,16 @@ export default function CartScreen(props) {
         try {
             list.map(async (item) => {
                 const prodId = item.item.product_id
+                const prodTitle = item.item.product_title
+                const img = item.item.product_thumb
                 await request(`${baseUrl}/api/orders/addOrder`, 'POST', {
                     id,
                     prodId,
                     date,
+                    prodTitle,
+                    img,
+                    name,
+                    address,
                 })
             })
             setList([])

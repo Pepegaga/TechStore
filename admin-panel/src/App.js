@@ -8,6 +8,8 @@ import Products from './screens/Products'
 import Comments from './screens/Comments'
 import Edit from './screens/EditScreen'
 import Add from './screens/AddScreen'
+import Users from './screens/Users'
+import SignIn from './screens/SignIn'
 
 function App() {
     return (
@@ -21,6 +23,8 @@ function App() {
                     <Route path="/comments" component={Comments} />
                     <Route path="/edit" component={Edit} />
                     <Route path="/add" component={Add} />
+                    <Route path="/users" component={Users} />
+                    <Route path="/signin" component={SignIn} />
                 </Switch>
             </Router>
         </>

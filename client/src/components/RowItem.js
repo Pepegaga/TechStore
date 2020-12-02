@@ -1,7 +1,6 @@
 import React from 'react'
 import { TouchableOpacity, Text, StyleSheet, View } from 'react-native'
 import colors from '../constants/colors'
-import DATA from '../constants/dataMock'
 
 const styles = StyleSheet.create({
     row: {

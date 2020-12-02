@@ -35,6 +35,16 @@
     margin-left: 17%;
 }
 
+.orderCard {
+    display: flex;
+    border-radius: 20px;
+    height: 290px;
+    width: 50%;
+    background-color: white;
+    margin-bottom: 10px;
+    margin-left: 25%;
+}
+
 .img {
     height: 160px;
     margin-top: 20px;
